@@ -1,4 +1,4 @@
-FROM samirkherraz/alpine-s6
+FROM dotriver/alpine-s6
 
 ENV VTIGER_VERSION=7.1.0 \
     DATABASE_HOST=localhost \
