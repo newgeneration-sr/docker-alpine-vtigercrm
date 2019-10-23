@@ -10,13 +10,11 @@
 - ADMIN_USERNAME=admin          ( Vtiger admin username )
 - ADMIN_PASSWORD=password       ( Vtiger admin password )
 - ADMIN_EMAIL=admin@exemple.org ( Vtiger admin email )
-- TRUSTED_HOST=localhost        ( Vtiger trusted domain )
 
 # Compose file exemple
 
 ```
-
-version: '3.1'
+version: '3'
 
 services:
 
@@ -30,21 +28,14 @@ services:
       - VTIGER_DB_PASSWORD=password
       - ADMIN_USERNAME=admin
       - ADMIN_PASSWORD=password
-      - ADMIN_EMAIL=admin@example.com
-      - TRUSTED_HOST=172.17.0.1:8080
+      - ADMIN_EMAIL=admin@exemple.org
     ports:
       - 8080:80
     networks:
       default:
     volumes:
-      - /tmp/vtigercrm:/var/www/vtigercrm/
-    deploy:
-      resources:
-        limits:
-          memory: 256M
-      restart_policy:
-        condition: on-failure
-      mode: global
+      - vtigercrm-data:/var/www/vtigercrm/
+    
 
   mariadb:
     image: dotriver/mariadb
@@ -60,16 +51,10 @@ services:
       - mariadb-config:/etc/mysql/
     networks:
       default:
-    deploy:
-      resources:
-        limits:
-          memory: 256M
-      restart_policy:
-        condition: on-failure
-      mode: global
-
+    
 volumes:
     mariadb-data:
     mariadb-config:
+    vtigercrm-data:
 
 ```
