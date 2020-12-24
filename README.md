@@ -1,5 +1,6 @@
 ![docker build automated](https://img.shields.io/docker/cloud/automated/dotriver/vtigercrm)
 ![docker build status](https://img.shields.io/docker/cloud/build/dotriver/vtigercrm)
+![docker build status](https://img.shields.io/docker/pulls/dotriver/vtigercrm)
 
 # Vtiger 7.1.10
 
